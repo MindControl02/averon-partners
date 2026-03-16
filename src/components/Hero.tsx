@@ -10,15 +10,16 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+      {/* Background image — modern financial district with glass towers */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80')",
+            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85')",
         }}
       />
-      <div className="absolute inset-0 bg-dark-900/85" />
+      {/* Multi-layer dark overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-900/90 via-dark-900/80 to-dark-900/95" />
 
       {/* Gradient accent blobs */}
       <div className="absolute inset-0 pointer-events-none">
@@ -31,7 +32,7 @@ export function Hero() {
 
       {/* Dot grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage:
             "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
@@ -46,7 +47,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium bg-dark-700/80 text-accent-blue-light border border-dark-500/50">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium bg-dark-700/80 text-accent-blue-light border border-dark-500/50 backdrop-blur-sm">
             <Sparkles size={14} />
             European B2B Growth Experts
           </span>

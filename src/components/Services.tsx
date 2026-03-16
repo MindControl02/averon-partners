@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Users, Rocket, Network, Settings, ArrowUpRight } from "lucide-react";
 
 const services = [
@@ -13,6 +14,7 @@ const services = [
     description:
       "End-to-end client acquisition strategy including prospecting, outreach, qualification, and deal closing. We build your European and US client pipeline from the ground up.",
     tags: ["Lead Generation", "Outbound Sales", "Deal Closing"],
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
   },
   {
     icon: Rocket,
@@ -21,6 +23,7 @@ const services = [
     description:
       "Comprehensive go-to-market strategies for SaaS companies entering European and US markets. From market research to first revenue, we guide your expansion journey.",
     tags: ["Go-to-Market", "Market Entry", "Localization"],
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
   },
   {
     icon: Network,
@@ -29,6 +32,7 @@ const services = [
     description:
       "Identify and establish strategic partnerships, channel alliances, and reseller networks to multiply your market reach across new geographies.",
     tags: ["Channel Partners", "Alliances", "Network Building"],
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80",
   },
   {
     icon: Settings,
@@ -37,6 +41,7 @@ const services = [
     description:
       "Audit and optimize your sales processes, tools, and team performance. Implement best practices that shorten sales cycles and increase conversion rates.",
     tags: ["Process Design", "CRM Setup", "Team Training"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -76,34 +81,49 @@ export function Services() {
             >
               <Link
                 href={service.href}
-                className="group relative block p-8 rounded-2xl bg-dark-700/20 border border-dark-600/30 hover:border-accent-blue/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/5 h-full"
+                className="group relative block rounded-2xl bg-dark-700/20 border border-dark-600/30 hover:border-accent-blue/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/5 h-full overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 flex items-center justify-center group-hover:from-accent-blue/20 group-hover:to-accent-purple/20 transition-colors">
-                    <service.icon size={26} className="text-accent-blue" />
-                  </div>
-                  <ArrowUpRight
-                    size={20}
-                    className="text-dark-400 group-hover:text-accent-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                {/* Service image */}
+                <div className="relative h-40 overflow-hidden w-full">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/60 to-transparent" />
+                  <div className="absolute inset-0 bg-accent-blue/[0.04]" />
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-dark-300 leading-relaxed mb-5">
-                  {service.description}
-                </p>
+                <div className="p-8 pt-4">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 flex items-center justify-center group-hover:from-accent-blue/20 group-hover:to-accent-purple/20 transition-colors -mt-10 relative z-10 border-2 border-dark-800">
+                      <service.icon size={22} className="text-accent-blue" />
+                    </div>
+                    <ArrowUpRight
+                      size={20}
+                      className="text-dark-400 group-hover:text-accent-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                    />
+                  </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-dark-600/50 text-dark-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-dark-300 leading-relaxed mb-5">
+                    {service.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-dark-600/50 text-dark-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Link>
             </motion.div>
