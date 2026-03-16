@@ -5,8 +5,6 @@
       <stop offset="100%" stop-color="#22a5dc" />
     </linearGradient>
   </defs>
-  <!-- V  cyan, behind -->
   <path d="M16,0 L34,40 L54,0 L46,0 L34,28 L24,0 Z" fill="url(#av-v-grad)" />
-  <!-- A  white, on top -->
   <path d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z" fill="#ffffff" />
 </svg>
