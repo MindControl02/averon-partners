@@ -11,7 +11,7 @@ import { AIChat } from "@/components/AIChat";
 
 export default function Home() {
   return (
-    <main className="dark:bg-dark-900 bg-gray-50 min-h-screen transition-colors duration-300">
+    <main className="bg-dark-900 min-h-screen">
       <Navbar />
       <Hero />
       <About />

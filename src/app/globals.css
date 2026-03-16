@@ -30,16 +30,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  .dark body {
     background-color: var(--color-dark-900);
     color: var(--color-dark-100);
-  }
-
-  .light body {
-    background-color: #f8f9fc;
-    color: #1a1a2e;
   }
 }
 

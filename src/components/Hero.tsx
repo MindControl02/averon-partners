@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { BookingModal } from "./BookingModal";
 
 export function Hero() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image — modern financial district skyline */}
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -14,9 +18,7 @@ export function Hero() {
             "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80')",
         }}
       />
-
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 dark:bg-dark-900/85 bg-white/80" />
+      <div className="absolute inset-0 bg-dark-900/85" />
 
       {/* Gradient accent blobs */}
       <div className="absolute inset-0 pointer-events-none">
@@ -44,7 +46,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium dark:bg-dark-700/80 bg-blue-50/90 dark:text-accent-blue-light text-accent-blue border dark:border-dark-500/50 border-blue-100">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium bg-dark-700/80 text-accent-blue-light border border-dark-500/50">
             <Sparkles size={14} />
             European B2B Growth Experts
           </span>
@@ -54,7 +56,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight dark:text-white text-gray-900 mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
         >
           Helping SaaS Companies
           <br />
@@ -65,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl dark:text-dark-200 text-gray-700 mb-10 leading-relaxed"
+          className="max-w-2xl mx-auto text-lg sm:text-xl text-dark-200 mb-10 leading-relaxed"
         >
           Averon Partners accelerates B2B client acquisition and market expansion
           for technology companies entering and growing across European markets.
@@ -77,8 +79,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#contact"
+          <button
+            onClick={() => setBookingOpen(true)}
             className="group px-8 py-4 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-xl hover:shadow-accent-blue/25 transition-all duration-300 flex items-center gap-2"
           >
             Book a Call
@@ -86,10 +88,10 @@ export function Hero() {
               size={16}
               className="group-hover:translate-x-1 transition-transform"
             />
-          </a>
+          </button>
           <a
             href="#about"
-            className="px-8 py-4 text-sm font-semibold dark:text-dark-200 text-gray-700 rounded-xl dark:bg-dark-700/60 bg-white/90 border dark:border-dark-500/50 border-gray-200 dark:hover:bg-dark-600/60 hover:bg-white hover:border-accent-blue/30 backdrop-blur-sm transition-all duration-300"
+            className="px-8 py-4 text-sm font-semibold text-dark-200 rounded-xl bg-dark-700/60 border border-dark-500/50 hover:bg-dark-600/60 hover:border-accent-blue/30 backdrop-blur-sm transition-all duration-300"
           >
             Learn More
           </a>
@@ -104,7 +106,7 @@ export function Hero() {
           {["SaaS", "AI & ML", "Automation", "CRM", "FinTech"].map((tag) => (
             <span
               key={tag}
-              className="text-xs font-medium tracking-wider uppercase dark:text-dark-400 text-gray-400"
+              className="text-xs font-medium tracking-wider uppercase text-dark-400"
             >
               {tag}
             </span>
@@ -116,11 +118,13 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border-2 dark:border-dark-400 border-gray-400 flex justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 border-dark-400 flex justify-center pt-1.5"
         >
-          <div className="w-1 h-1.5 rounded-full dark:bg-dark-400 bg-gray-400" />
+          <div className="w-1 h-1.5 rounded-full bg-dark-400" />
         </motion.div>
       </div>
+
+      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </section>
   );
 }
