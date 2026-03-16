@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Monitor, Brain, Cpu, BarChart3, Shield, Zap } from "lucide-react";
+import { Monitor, Brain, Cpu, BarChart3, Shield, Zap, Globe } from "lucide-react";
 
 const industries = [
   { icon: Monitor, label: "SaaS Platforms" },
@@ -14,22 +14,20 @@ const industries = [
 ];
 
 const stats = [
-  { value: "50+", label: "Clients Served" },
-  { value: "15+", label: "European Markets" },
-  { value: "200+", label: "Deals Closed" },
-  { value: "8+", label: "Years Experience" },
+  { value: "100+", label: "Deals Closed" },
+  { value: "4+", label: "Years Experience" },
 ];
 
 const expertise = [
   {
-    title: "Deep European Market Knowledge",
+    title: "Deep Market Knowledge",
     description:
-      "Navigating diverse regulatory frameworks, business cultures, and market dynamics across Western, Central, and Northern Europe.",
+      "We work with companies expanding remotely across Europe and the United States, navigating diverse business cultures, regulations, and buyer behaviors.",
   },
   {
     title: "Technology-First Approach",
     description:
-      "We understand the SaaS and technology landscape, speaking your language and positioning your product for European enterprise buyers.",
+      "We understand the SaaS and technology landscape, speaking your language and positioning your product for enterprise buyers on both sides of the Atlantic.",
   },
   {
     title: "End-to-End Deal Management",
@@ -65,26 +63,35 @@ export function Expertise() {
           </p>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats + market note */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="mb-16"
         >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-6 rounded-2xl dark:bg-dark-700/20 bg-white border dark:border-dark-600/30 border-gray-100"
-            >
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
-                {stat.value}
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 max-w-lg mx-auto mb-8">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="text-center p-6 rounded-2xl dark:bg-dark-700/20 bg-white border dark:border-dark-600/30 border-gray-100"
+              >
+                <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm dark:text-dark-300 text-gray-500">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-sm dark:text-dark-300 text-gray-500">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center gap-3 text-center">
+            <Globe size={18} className="text-accent-blue flex-shrink-0" />
+            <p className="text-sm md:text-base dark:text-dark-200 text-gray-600">
+              We work with companies expanding remotely across <strong className="dark:text-white text-gray-900">Europe</strong> and the <strong className="dark:text-white text-gray-900">United States</strong>.
+            </p>
+          </div>
         </motion.div>
 
         {/* Industries */}

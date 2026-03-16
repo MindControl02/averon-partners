@@ -6,15 +6,33 @@ import { ArrowRight, Sparkles } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 dark:bg-dark-900 bg-gray-50" />
-      <div className="absolute inset-0 dark:opacity-100 opacity-0">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-accent-blue/5 blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent-purple/5 blur-[120px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-      </div>
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.03]"
+      {/* Background image — modern financial district skyline */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80')",
+        }}
+      />
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 dark:bg-dark-900/85 bg-white/80" />
+
+      {/* Gradient accent blobs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-accent-blue/[0.07] blur-[120px] animate-pulse-glow" />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent-purple/[0.06] blur-[120px] animate-pulse-glow"
+          style={{ animationDelay: "1.5s" }}
+        />
+      </div>
+
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -26,7 +44,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium dark:bg-dark-700/80 bg-blue-50 dark:text-accent-blue-light text-accent-blue border dark:border-dark-500/50 border-blue-100">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium dark:bg-dark-700/80 bg-blue-50/90 dark:text-accent-blue-light text-accent-blue border dark:border-dark-500/50 border-blue-100">
             <Sparkles size={14} />
             European B2B Growth Experts
           </span>
@@ -47,7 +65,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl dark:text-dark-300 text-gray-600 mb-10 leading-relaxed"
+          className="max-w-2xl mx-auto text-lg sm:text-xl dark:text-dark-200 text-gray-700 mb-10 leading-relaxed"
         >
           Averon Partners accelerates B2B client acquisition and market expansion
           for technology companies entering and growing across European markets.
@@ -64,11 +82,14 @@ export function Hero() {
             className="group px-8 py-4 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-xl hover:shadow-accent-blue/25 transition-all duration-300 flex items-center gap-2"
           >
             Book a Call
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </a>
           <a
             href="#about"
-            className="px-8 py-4 text-sm font-semibold dark:text-dark-200 text-gray-700 rounded-xl dark:bg-dark-700/50 bg-white border dark:border-dark-500/50 border-gray-200 dark:hover:bg-dark-600/50 hover:bg-gray-50 hover:border-accent-blue/30 transition-all duration-300"
+            className="px-8 py-4 text-sm font-semibold dark:text-dark-200 text-gray-700 rounded-xl dark:bg-dark-700/60 bg-white/90 border dark:border-dark-500/50 border-gray-200 dark:hover:bg-dark-600/60 hover:bg-white hover:border-accent-blue/30 backdrop-blur-sm transition-all duration-300"
           >
             Learn More
           </a>
@@ -95,7 +116,7 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border-2 dark:border-dark-400 border-gray-300 flex justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 dark:border-dark-400 border-gray-400 flex justify-center pt-1.5"
         >
           <div className="w-1 h-1.5 rounded-full dark:bg-dark-400 bg-gray-400" />
         </motion.div>

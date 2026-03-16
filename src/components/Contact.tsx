@@ -4,14 +4,31 @@ import { useState, useRef, FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import { Calendar, Mail, ArrowRight, CheckCircle } from "lucide-react";
 
+const CONTACT_EMAIL = "contact@averon-partners.com";
+
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    const subject = encodeURIComponent(
+      `New inquiry from ${form.name}${form.company ? ` — ${form.company}` : ""}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "N/A"}\n\nMessage:\n${form.message}`
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -57,10 +74,11 @@ export function Contact() {
                 Schedule a Meeting
               </h3>
               <p className="text-sm dark:text-dark-300 text-gray-600 mb-4 leading-relaxed">
-                Book a 30-minute discovery call with our team to discuss your European expansion goals.
+                Book a 30-minute discovery call with our team to discuss your
+                European expansion goals.
               </p>
               <a
-                href="#contact"
+                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Meeting Request — Averon Partners")}`}
                 className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all"
               >
                 <Calendar size={16} />
@@ -79,10 +97,10 @@ export function Contact() {
                 Prefer email? Reach out to us directly.
               </p>
               <a
-                href="mailto:hello@averonpartners.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-sm font-medium text-accent-blue hover:text-accent-blue-light transition-colors"
               >
-                hello@averonpartners.com
+                {CONTACT_EMAIL}
               </a>
             </div>
           </motion.div>
@@ -162,7 +180,7 @@ export function Contact() {
                 {submitted ? (
                   <>
                     <CheckCircle size={16} />
-                    Message Sent!
+                    Opening mail client&hellip;
                   </>
                 ) : (
                   <>

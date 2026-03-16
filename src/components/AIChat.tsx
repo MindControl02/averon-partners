@@ -19,11 +19,11 @@ const KNOWLEDGE_BASE: Record<string, string> = {
   industries:
     "We work with companies in SaaS platforms, AI & machine learning, automation tools, CRM & analytics, cybersecurity, and fintech. Our focus is exclusively on technology companies, giving us deep domain expertise.",
   europe:
-    "We have extensive experience across Western, Central, and Northern European markets. We understand the diverse regulatory frameworks, business cultures, and buyer behaviors that make European expansion unique.",
+    "We work with companies expanding remotely across Europe and the United States. We understand the diverse regulatory frameworks, business cultures, and buyer behaviors that make international expansion unique.",
   pricing:
     "Our engagement models are tailored to each client's needs. We typically work with retainer-based partnerships or performance-driven models. I'd recommend booking a call with our team to discuss the best fit for your company.",
   contact:
-    "You can reach us through the contact form on this page, or book a call directly. Just scroll down to the Contact section, or click 'Book a Call' in the navigation. We typically respond within 24 hours.",
+    "You can reach us through the contact form on this page, or email us directly at **contact@averon-partners.com**. Just scroll down to the Contact section, or click 'Book a Call' in the navigation. We typically respond within 24 hours.",
   meeting:
     "Great idea! You can schedule a meeting with our team by using the contact form below or clicking 'Book a Call' in the navigation. We'd love to learn about your growth goals.",
 };
