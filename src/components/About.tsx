@@ -52,14 +52,14 @@ export function About() {
               About Us
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-              Your Growth Partner in
-              <span className="gradient-text"> Europe &amp; the US</span>
+              B2B Growth Partner for
+              <span className="gradient-text"> IT Companies</span>
             </h2>
             <p className="text-lg text-dark-300 leading-relaxed">
-              Averon Partners is a business development firm specializing in helping SaaS, AI,
-              automation, and technology companies acquire B2B clients and expand across European
-              and US markets. We combine deep industry expertise with proven sales methodologies
-              to deliver results.
+              Averon Partners is a business development firm that helps IT companies find
+              B2B clients and automate their sales processes. We specialize in SaaS and
+              AI &amp; Machine Learning companies, helping them expand across European and US
+              markets through structured outreach, partnerships, and business automation.
             </p>
           </motion.div>
 

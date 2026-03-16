@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Averon Partners — B2B Growth & SaaS Expansion in Europe",
+  title: "Averon Partners — B2B Clients for SaaS & AI Companies",
   description:
-    "Averon Partners helps SaaS, AI, automation and technology companies acquire B2B clients and expand across European and US markets. Expert business development and strategic partnerships.",
+    "Averon Partners helps IT companies find B2B clients and automate business development. We specialize in SaaS and AI & Machine Learning companies expanding across Europe and the US.",
   keywords: [
     "B2B sales",
     "SaaS expansion",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     "Averon Partners",
   ],
   openGraph: {
-    title: "Averon Partners — B2B Growth & SaaS Expansion in Europe",
+    title: "Averon Partners — B2B Clients for SaaS & AI Companies",
     description:
-      "Helping SaaS and technology companies scale in European and US markets through expert B2B client acquisition and business development.",
+      "Helping IT companies find B2B clients and automate business development. Specializing in SaaS and AI & Machine Learning.",
     type: "website",
     locale: "en_US",
   },

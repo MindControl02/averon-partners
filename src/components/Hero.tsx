@@ -49,7 +49,7 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium bg-dark-700/80 text-accent-blue-light border border-dark-500/50 backdrop-blur-sm">
             <Sparkles size={14} />
-            European B2B Growth Experts
+            B2B Growth for IT Companies
           </span>
         </motion.div>
 
@@ -59,9 +59,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
         >
-          Helping SaaS Companies
+          B2B Clients for SaaS
           <br />
-          <span className="gradient-text">Scale in Europe</span>
+          <span className="gradient-text">& AI Companies</span>
         </motion.h1>
 
         <motion.p
@@ -70,8 +70,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="max-w-2xl mx-auto text-lg sm:text-xl text-dark-200 mb-10 leading-relaxed"
         >
-          Averon Partners accelerates B2B client acquisition and market expansion
-          for technology companies entering and growing across European markets.
+          Averon Partners helps IT companies find B2B clients, automate business
+          development, and scale across Europe and the US. We specialize in SaaS
+          and AI &amp; Machine Learning companies.
         </motion.p>
 
         <motion.div
