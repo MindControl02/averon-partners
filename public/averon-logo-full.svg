@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="v-grad" x1="16" y1="0" x2="54" y2="40">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22a5dc" />
+    </linearGradient>
+  </defs>
+
+  <!-- AV Mark -->
+  <g transform="translate(73, 0)">
+    <!-- V  cyan, behind -->
+    <path d="M16,0 L34,40 L54,0 L46,0 L34,28 L24,0 Z" fill="url(#v-grad)" />
+    <!-- A  white, on top -->
+    <path d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z" fill="#ffffff" />
+  </g>
+
+  <!-- AVERON PARTNERS text -->
+  <text x="100" y="56" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="12" letter-spacing="0.15em" fill="#ffffff">AVERON</text>
+  <text x="100" y="67" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="7" letter-spacing="0.3em" fill="#6b6d8a">PARTNERS</text>
+</svg>
