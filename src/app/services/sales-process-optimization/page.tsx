@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Settings,
   Filter,
@@ -68,6 +69,19 @@ export default function SalesProcessOptimization() {
         >
           &larr; Back to Services
         </Link>
+
+        {/* Hero image */}
+        <div className="relative rounded-2xl overflow-hidden mb-10 aspect-[21/9]">
+          <Image
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
+            alt="Analytics dashboard and performance metrics"
+            fill
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-dark-900/30 to-transparent" />
+          <div className="absolute inset-0 bg-accent-blue/[0.05]" />
+        </div>
 
         <div className="flex items-center gap-4 mb-6">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-blue/15 to-accent-purple/15 flex items-center justify-center">
