@@ -51,12 +51,12 @@ export function Contact() {
             Contact
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to
-            <span className="gradient-text"> Find New Clients?</span>
+            Ready to Get B2B Clients
+            <span className="gradient-text"> for Your Product?</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-dark-300 leading-relaxed">
-            Tell us about your product and target market.
-            We&apos;ll show you how we can help.
+            Tell us about your product and target market
+            &mdash; we&apos;ll show you how we can help.
           </p>
         </motion.div>
 
