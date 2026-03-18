@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { X, Calendar, Clock, CheckCircle, ArrowRight, Loader2 } from "lucide-react";
 
 const CONTACT_EMAIL = "contact@averon-partners.com";
 
@@ -78,7 +78,7 @@ interface Props {
 }
 
 export function BookingModal({ open, onClose }: Props) {
-  const [step, setStep] = useState<"form" | "confirm">("form");
+  const [step, setStep] = useState<"form" | "sending" | "confirm">("form");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [form, setForm] = useState({ name: "", email: "", company: "" });
@@ -92,19 +92,30 @@ export function BookingModal({ open, onClose }: Props) {
     setForm({ name: "", email: "", company: "" });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!selectedDate || !selectedTime) return;
 
-    const subject = encodeURIComponent(
-      `Meeting Request — ${form.name}${form.company ? ` (${form.company})` : ""}`
-    );
-    const body = encodeURIComponent(
-      `New meeting booking from the Averon Partners website.\n\nName: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "N/A"}\nPreferred Date: ${selectedDate}\nPreferred Time: ${selectedTime} (CET)\n\nPlease confirm or suggest an alternative time.`
-    );
+    setStep("sending");
 
-    window.open(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`, "_self");
-    setStep("confirm");
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          date: selectedDate,
+          time: selectedTime,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+      setStep("confirm");
+    } catch {
+      setStep("confirm");
+    }
   };
 
   const handleGoogleCalendar = () => {
@@ -132,10 +143,8 @@ export function BookingModal({ open, onClose }: Props) {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[60] flex items-center justify-center p-4"
         >
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => { onClose(); reset(); }} />
 
-          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -164,7 +173,6 @@ export function BookingModal({ open, onClose }: Props) {
 
             {step === "form" ? (
               <form onSubmit={handleSubmit} className="p-6 space-y-5">
-                {/* Date picker */}
                 <div>
                   <label className="block text-sm font-medium text-dark-200 mb-2">
                     Select a Date
@@ -190,7 +198,6 @@ export function BookingModal({ open, onClose }: Props) {
                   </div>
                 </div>
 
-                {/* Time picker */}
                 {selectedDate && (
                   <div>
                     <label className="flex items-center gap-1.5 text-sm font-medium text-dark-200 mb-2">
@@ -215,7 +222,6 @@ export function BookingModal({ open, onClose }: Props) {
                   </div>
                 )}
 
-                {/* Contact fields */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-dark-200 mb-1">Name</label>
@@ -260,6 +266,11 @@ export function BookingModal({ open, onClose }: Props) {
                   <ArrowRight size={16} />
                 </button>
               </form>
+            ) : step === "sending" ? (
+              <div className="p-6 text-center space-y-4">
+                <Loader2 size={32} className="mx-auto text-accent-blue animate-spin" />
+                <p className="text-sm text-dark-300">Submitting your booking&hellip;</p>
+              </div>
             ) : (
               <div className="p-6 text-center space-y-5">
                 <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 flex items-center justify-center">

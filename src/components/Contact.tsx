@@ -2,7 +2,7 @@
 
 import { useState, useRef, FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import { Calendar, Mail, ArrowRight, CheckCircle } from "lucide-react";
+import { Calendar, Mail, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { BookingModal } from "./BookingModal";
 
 const CONTACT_EMAIL = "contact@averon-partners.com";
@@ -10,7 +10,7 @@ const CONTACT_EMAIL = "contact@averon-partners.com";
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [bookingOpen, setBookingOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -19,23 +19,28 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setStatus("sending");
 
-    const subject = encodeURIComponent(
-      `New inquiry from ${form.name}${form.company ? ` — ${form.company}` : ""}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "N/A"}\n\nMessage:\n${form.message}`
-    );
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      if (!res.ok) throw new Error("Request failed");
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: "", email: "", company: "", message: "" });
-    }, 3000);
+      setStatus("sent");
+      setTimeout(() => {
+        setStatus("idle");
+        setForm({ name: "", email: "", company: "", message: "" });
+      }, 4000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -172,15 +177,23 @@ export function Contact() {
 
               <button
                 type="submit"
-                disabled={submitted}
+                disabled={status === "sending" || status === "sent"}
                 className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                {submitted ? (
+                {status === "sending" && (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    Sending&hellip;
+                  </>
+                )}
+                {status === "sent" && (
                   <>
                     <CheckCircle size={16} />
-                    Opening mail client&hellip;
+                    Message Sent
                   </>
-                ) : (
+                )}
+                {status === "error" && "Something went wrong — try again"}
+                {status === "idle" && (
                   <>
                     Get in Touch
                     <ArrowRight size={16} />

@@ -9,7 +9,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/maks-bolotskyi-62247b398/";
 
 export function Footer() {
   return (
-    <footer className="py-16 border-t border-dark-700/50 bg-dark-900">
+    <footer className="py-16 border-t border-dark-600/40 bg-dark-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           <div className="md:col-span-2">

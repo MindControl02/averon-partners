@@ -20,8 +20,8 @@ export function Experience() {
             className="relative rounded-2xl overflow-hidden aspect-[4/3]"
           >
             <Image
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-              alt="Modern business office"
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
+              alt="Business professional in financial district"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
