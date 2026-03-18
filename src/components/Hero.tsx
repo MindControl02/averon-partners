@@ -10,11 +10,18 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-dark-900" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85')",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-900/92 via-dark-900/85 to-dark-900/95" />
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-accent-blue/[0.04] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.03] blur-[150px]" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-accent-blue/[0.05] blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.04] blur-[150px]" />
       </div>
 
       <div
