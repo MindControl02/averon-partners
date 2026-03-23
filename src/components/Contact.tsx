@@ -45,12 +45,12 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 md:py-32 relative">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-accent-blue-light mb-4 block">
             Contact
@@ -65,60 +65,41 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-2 space-y-6"
-          >
-            <div className="p-6 rounded-2xl bg-dark-700/30 border border-dark-600/30">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 flex items-center justify-center mb-4">
-                <Calendar size={22} className="text-accent-blue" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Schedule a Meeting
-              </h3>
-              <p className="text-sm text-dark-300 mb-4 leading-relaxed">
-                Book a 30-minute call to discuss your
-                goals and see if we&apos;re a good fit.
-              </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <div className="p-8 rounded-2xl bg-dark-700/20 border border-dark-600/30">
+            <div className="flex flex-col sm:flex-row items-stretch gap-3 mb-8">
               <button
                 onClick={() => setBookingOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all"
               >
                 <Calendar size={16} />
-                Book a Call
+                Schedule a Meeting
               </button>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-dark-700/30 border border-dark-600/30">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 flex items-center justify-center mb-4">
-                <Mail size={22} className="text-accent-blue" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Email Us</h3>
-              <p className="text-sm text-dark-300 mb-2 leading-relaxed">
-                Prefer email? Reach out directly.
-              </p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="text-sm font-medium text-accent-blue hover:text-accent-blue-light transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-dark-200 rounded-xl bg-dark-700/50 border border-dark-600/30 hover:border-accent-blue/30 hover:text-white transition-all"
               >
+                <Mail size={16} />
                 {CONTACT_EMAIL}
               </a>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-3"
-          >
-            <form
-              onSubmit={handleSubmit}
-              className="p-8 rounded-2xl bg-dark-700/20 border border-dark-600/30 space-y-5"
-            >
+            <div className="relative mb-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-dark-600/30" />
+              </div>
+              <div className="relative flex justify-center">
+                <span className="px-4 text-xs text-dark-400 bg-dark-800/80 rounded-full">
+                  or send us a message
+                </span>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-dark-200 mb-1.5">
@@ -201,8 +182,8 @@ export function Contact() {
                 )}
               </button>
             </form>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
 
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />

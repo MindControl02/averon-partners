@@ -1,11 +1,10 @@
 "use client";
 
 import { Logo } from "./Logo";
-import { Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 
 const CONTACT_EMAIL = "contact@averon-partners.com";
-const LINKEDIN_URL = "https://www.linkedin.com/in/maks-bolotskyi-62247b398/";
 
 export function Footer() {
   return (
@@ -27,31 +26,6 @@ export function Footer() {
               >
                 {CONTACT_EMAIL}
               </a>
-            </div>
-
-            <div className="mt-6 flex items-start gap-3 p-4 rounded-xl bg-dark-700/30 border border-dark-600/20 max-w-xs">
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-[#0A66C2] flex items-center justify-center flex-shrink-0 hover:opacity-90 transition-opacity"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} className="text-white" />
-              </a>
-              <div>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-white hover:text-accent-blue transition-colors"
-                >
-                  Maks Bolotskyi
-                </a>
-                <p className="text-xs text-dark-400 mt-0.5">
-                  CEO &mdash; Averon Partners
-                </p>
-              </div>
             </div>
           </div>
 
