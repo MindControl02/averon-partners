@@ -323,7 +323,7 @@ export function Experience() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-accent-blue hover:text-accent-purple transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent-blue hover:text-accent-cyan transition-colors"
           >
             Let&apos;s talk about your goals
             <ArrowRight size={16} />

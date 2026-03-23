@@ -51,7 +51,7 @@ export function Navbar() {
 
             <a
               href="#contact"
-              className="group px-5 py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-300 inline-flex items-center gap-1.5"
+              className="group px-5 py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-accent-blue to-accent-cyan hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-300 inline-flex items-center gap-1.5"
             >
               Get Started
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -92,7 +92,7 @@ export function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 px-5 py-3 text-sm font-semibold text-white text-center rounded-lg bg-gradient-to-r from-accent-blue to-accent-purple"
+                className="mt-2 px-5 py-3 text-sm font-semibold text-white text-center rounded-lg bg-gradient-to-r from-accent-blue to-accent-cyan"
               >
                 Get Started
               </a>

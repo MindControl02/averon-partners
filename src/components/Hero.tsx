@@ -3,13 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
-const stats = [
-  { value: "50+", label: "Clients Served" },
-  { value: "2+", label: "Years Experience" },
-  { value: "500+", label: "Meetings Booked" },
-  { value: "90%", label: "Client Retention" },
-];
-
 export function Hero() {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -17,7 +10,7 @@ export function Hero() {
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent-blue/[0.06] blur-[120px]" />
-        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent-purple/[0.05] blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent-cyan/[0.06] blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +56,7 @@ export function Hero() {
           >
             <a
               href="#contact"
-              className="group px-8 py-4 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-xl hover:shadow-accent-blue/20 transition-all duration-300 flex items-center gap-2"
+              className="group px-8 py-4 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-cyan hover:shadow-xl hover:shadow-accent-blue/20 transition-all duration-300 flex items-center gap-2"
             >
               Get Started
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -90,25 +83,6 @@ export function Hero() {
             ))}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
-        >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-5 rounded-2xl bg-white/80 border border-light-200 backdrop-blur-sm"
-            >
-              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
-                {stat.value}
-              </div>
-              <div className="text-xs text-light-500">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

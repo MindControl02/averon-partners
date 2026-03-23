@@ -25,7 +25,7 @@ export function Logo({ size = "default", variant = "auto" }: { size?: "small" | 
           <defs>
             <linearGradient id="av-v-grad" x1="16" y1="0" x2="54" y2="40">
               <stop offset="0%" stopColor="#3b6ef5" />
-              <stop offset="100%" stopColor="#6c4bf5" />
+              <stop offset="100%" stopColor="#38bdf8" />
             </linearGradient>
           </defs>
           <path

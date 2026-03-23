@@ -82,6 +82,32 @@ export function About() {
           </p>
         </motion.div>
 
+        {/* Pipeline funnel visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mb-12 flex items-center justify-center gap-3 sm:gap-4"
+        >
+          {[
+            { label: "Target Accounts", w: "w-40 sm:w-48" },
+            { label: "Outreach", w: "w-32 sm:w-40" },
+            { label: "Meetings", w: "w-24 sm:w-32" },
+            { label: "Clients", w: "w-20 sm:w-24" },
+          ].map((stage, i) => (
+            <div key={stage.label} className="flex items-center gap-3 sm:gap-4">
+              <div className={`${stage.w} py-2.5 rounded-lg bg-gradient-to-r from-accent-blue/10 to-accent-cyan/10 border border-accent-blue/15 text-center`}>
+                <div className="text-[10px] sm:text-xs font-semibold text-accent-blue">{stage.label}</div>
+              </div>
+              {i < 3 && (
+                <svg width="16" height="12" viewBox="0 0 16 12" className="text-light-400 flex-shrink-0">
+                  <path d="M0 6h12M10 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              )}
+            </div>
+          ))}
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {steps.map((step, index) => (
             <motion.div

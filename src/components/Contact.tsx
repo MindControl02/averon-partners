@@ -74,7 +74,7 @@ export function Contact() {
             <div className="flex flex-col sm:flex-row items-stretch gap-3 mb-8">
               <button
                 onClick={() => setBookingOpen(true)}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-cyan hover:shadow-lg hover:shadow-accent-blue/25 transition-all"
               >
                 <Calendar size={16} />
                 Schedule a Meeting
@@ -159,7 +159,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending" || status === "sent"}
-                className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
+                className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-cyan hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 {status === "sending" && (
                   <>

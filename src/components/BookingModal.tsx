@@ -87,7 +87,7 @@ export function BookingModal({ open, onClose }: Props) {
           <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.25 }} className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white border border-light-300 shadow-2xl">
             <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-light-200">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center">
                   <Calendar size={18} className="text-white" />
                 </div>
                 <div>
@@ -134,7 +134,7 @@ export function BookingModal({ open, onClose }: Props) {
                   <label className="block text-sm font-medium text-light-700 mb-1">Company</label>
                   <input type="text" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company name (optional)" className="w-full px-3 py-2.5 rounded-xl text-sm bg-light-100 text-light-900 border border-light-300/60 focus:outline-none focus:border-accent-blue/50 transition-colors placeholder:text-light-500" />
                 </div>
-                <button type="submit" disabled={!selectedDate || !selectedTime} className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 transition-all disabled:opacity-40 flex items-center justify-center gap-2">Confirm Booking <ArrowRight size={16} /></button>
+                <button type="submit" disabled={!selectedDate || !selectedTime} className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-blue to-accent-cyan hover:shadow-lg hover:shadow-accent-blue/25 transition-all disabled:opacity-40 flex items-center justify-center gap-2">Confirm Booking <ArrowRight size={16} /></button>
               </form>
             ) : step === "sending" ? (
               <div className="p-6 text-center space-y-4"><Loader2 size={32} className="mx-auto text-accent-blue animate-spin" /><p className="text-sm text-light-600">Submitting your booking&hellip;</p></div>
