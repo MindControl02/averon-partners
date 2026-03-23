@@ -12,21 +12,12 @@ export function Hero() {
             "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85')",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-900/92 via-dark-900/85 to-dark-900/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-light-900/88 via-light-900/80 to-light-900/92" />
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-accent-blue/[0.05] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.04] blur-[150px]" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-accent-blue/[0.06] blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.05] blur-[150px]" />
       </div>
-
-      <div
-        className="absolute inset-0 opacity-[0.015]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-          backgroundSize: "48px 48px",
-        }}
-      />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
@@ -44,7 +35,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-dark-200 leading-relaxed"
+          className="max-w-2xl mx-auto text-lg sm:text-xl text-white/70 leading-relaxed"
         >
           Averon Partners identifies decision-makers, builds outreach
           pipelines, and generates real business opportunities for
@@ -56,9 +47,9 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border-2 border-dark-400 flex justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 border-white/30 flex justify-center pt-1.5"
         >
-          <div className="w-1 h-1.5 rounded-full bg-dark-400" />
+          <div className="w-1 h-1.5 rounded-full bg-white/30" />
         </motion.div>
       </div>
     </section>
