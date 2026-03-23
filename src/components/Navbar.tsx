@@ -35,7 +35,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="relative z-10">
-            <Logo variant={scrolled ? "light" : "dark"} />
+            <Logo />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,11 +43,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  scrolled
-                    ? "text-light-700 hover:text-accent-blue"
-                    : "text-white/80 hover:text-white"
-                }`}
+                className="text-sm font-medium text-light-600 hover:text-accent-blue transition-colors"
               >
                 {link.label}
               </a>
@@ -65,7 +61,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 rounded-lg ${scrolled ? "text-light-700" : "text-white/80"}`}
+              className="p-2 rounded-lg text-light-700"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}

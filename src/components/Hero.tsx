@@ -1,55 +1,113 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle } from "lucide-react";
+
+const stats = [
+  { value: "50+", label: "Clients Served" },
+  { value: "2+", label: "Years Experience" },
+  { value: "500+", label: "Meetings Booked" },
+  { value: "90%", label: "Client Retention" },
+];
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85')",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-light-900/88 via-light-900/80 to-light-900/92" />
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-light-50 via-light-100 to-light-50" />
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-accent-blue/[0.06] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.05] blur-[150px]" />
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent-blue/[0.06] blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent-purple/[0.05] blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]"
-        >
-          We Help IT Companies
-          <br />
-          <span className="gradient-text">Get B2B Clients</span>
-        </motion.h1>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-accent-blue/8 text-accent-blue border border-accent-blue/15">
+              B2B Client Acquisition for IT Companies
+            </span>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-white/70 leading-relaxed"
-        >
-          Averon Partners identifies decision-makers, builds outreach
-          pipelines, and generates real business opportunities for
-          technology companies selling B2B products.
-        </motion.p>
-      </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-light-900 mb-6 leading-[1.1]"
+          >
+            We Find
+            <span className="gradient-text"> B2B Clients </span>
+            for Your IT Product
+          </motion.h1>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="max-w-2xl mx-auto text-lg sm:text-xl text-light-600 leading-relaxed mb-8"
+          >
+            Averon Partners identifies decision-makers, builds outreach
+            pipelines, and generates real business opportunities for
+            technology companies selling B2B products.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+          >
+            <a
+              href="#contact"
+              className="group px-8 py-4 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-xl hover:shadow-accent-blue/20 transition-all duration-300 flex items-center gap-2"
+            >
+              Get Started
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#what-we-do"
+              className="px-8 py-4 text-sm font-semibold text-light-700 rounded-xl bg-white border border-light-300 hover:border-accent-blue/30 hover:text-accent-blue transition-all duration-300"
+            >
+              How It Works
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="flex items-center justify-center gap-6 flex-wrap text-sm text-light-600"
+          >
+            {["No upfront fees", "Results-focused", "Technology companies only"].map((item) => (
+              <span key={item} className="flex items-center gap-1.5">
+                <CheckCircle size={14} className="text-emerald-500" />
+                {item}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border-2 border-white/30 flex justify-center pt-1.5"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
         >
-          <div className="w-1 h-1.5 rounded-full bg-white/30" />
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="text-center p-5 rounded-2xl bg-white/80 border border-light-200 backdrop-blur-sm"
+            >
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                {stat.value}
+              </div>
+              <div className="text-xs text-light-500">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

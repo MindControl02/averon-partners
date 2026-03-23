@@ -1,34 +1,57 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Search, UserCheck, CalendarCheck, Handshake } from "lucide-react";
+import { Search, UserCheck, CalendarCheck, Handshake, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
-    title: "Find Potential Clients",
+    step: "01",
+    title: "Identify Your Ideal Clients",
     description:
-      "We research and identify companies that match your ideal customer profile across target markets.",
+      "We research your product, define the ideal customer profile, and build a targeted list of companies that genuinely need what you sell.",
+    details: [
+      "Market research & ICP definition",
+      "Custom prospect database",
+      "Industry & geography targeting",
+    ],
   },
   {
     icon: UserCheck,
+    step: "02",
     title: "Reach Decision-Makers",
     description:
-      "We connect directly with the people who have the authority and budget to buy your product.",
+      "We craft personalized outreach and connect directly with the people who have the authority and budget to purchase your product.",
+    details: [
+      "Direct access to CTOs, VPs, Directors",
+      "Multi-channel outreach campaigns",
+      "Personalized messaging sequences",
+    ],
   },
   {
     icon: CalendarCheck,
-    title: "Generate Meetings",
+    step: "03",
+    title: "Generate Qualified Meetings",
     description:
-      "We build outreach sequences that result in qualified meetings and real conversations.",
+      "We book calls and meetings with real buyers — not generic leads. Every conversation is with someone who fits your target profile.",
+    details: [
+      "Qualified meeting scheduling",
+      "Lead warming & follow-ups",
+      "Calendar integration",
+    ],
   },
   {
     icon: Handshake,
-    title: "Support Deal Flow",
+    step: "04",
+    title: "Support Early-Stage Deals",
     description:
-      "We help move early-stage opportunities forward, from first contact to commercial discussion.",
+      "We help move opportunities forward from the first conversation to a commercial discussion, supporting your sales team throughout.",
+    details: [
+      "Pipeline management support",
+      "Deal stage progression",
+      "Feedback & optimization loop",
+    ],
   },
 ];
 
@@ -37,7 +60,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="what-we-do" className="py-24 md:py-32 relative bg-light-100">
+    <section id="what-we-do" className="py-24 md:py-32 relative">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -46,40 +69,54 @@ export function About() {
           className="text-center mb-16"
         >
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-accent-blue mb-4 block">
-            What We Do
+            How It Works
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-light-900 mb-6">
-            B2B Client Acquisition
-            <br />
-            <span className="gradient-text">for Technology Companies</span>
+            From Zero Pipeline to
+            <span className="gradient-text"> Real Clients</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-light-600 leading-relaxed">
-            We focus on one thing: helping IT and technology companies
-            find and win B2B clients through structured outreach
-            and direct access to decision-makers.
-            By concentrating entirely on one service, we deliver it
-            at the highest professional level.
+            We focus on one thing: finding B2B clients for your IT product.
+            By concentrating entirely on one service, we execute it at the
+            highest professional level.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-              className="group p-6 rounded-2xl bg-white border border-light-300/60 hover:border-accent-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/5"
+              className="group p-7 rounded-2xl bg-white border border-light-200 hover:border-accent-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/5"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent-blue/8 flex items-center justify-center mb-4 group-hover:bg-accent-blue/15 transition-colors">
-                <step.icon size={22} className="text-accent-blue" />
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-accent-blue/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent-blue/15 transition-colors">
+                  <step.icon size={22} className="text-accent-blue" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-accent-blue/50 block mb-1">
+                    STEP {step.step}
+                  </span>
+                  <h3 className="text-lg font-bold text-light-900">
+                    {step.title}
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-light-900 mb-2">
-                {step.title}
-              </h3>
-              <p className="text-sm text-light-600 leading-relaxed">
+
+              <p className="text-sm text-light-600 leading-relaxed mb-4">
                 {step.description}
               </p>
+
+              <ul className="space-y-2">
+                {step.details.map((detail) => (
+                  <li key={detail} className="flex items-center gap-2 text-sm text-light-700">
+                    <ArrowRight size={12} className="text-accent-blue flex-shrink-0" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
