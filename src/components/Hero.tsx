@@ -13,7 +13,7 @@ export function Hero() {
             "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80')",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-light-100/95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/80 to-light-100/85" />
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent-blue/[0.05] blur-[120px]" />

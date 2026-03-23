@@ -20,8 +20,8 @@ export function Logo({ size = "default" }: { size?: "small" | "default" | "large
         >
           <defs>
             <linearGradient id="av-v-grad" x1="36" y1="0" x2="42" y2="40">
-              <stop offset="0%" stopColor="#c8daf8" />
-              <stop offset="100%" stopColor="#38a3d0" />
+              <stop offset="0%" stopColor="#b8d8ef" />
+              <stop offset="100%" stopColor="#4FA3D1" />
             </linearGradient>
           </defs>
           <path

@@ -156,24 +156,26 @@ export function Expertise() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {audiences.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.05 + 0.7 }}
-              className="p-4 rounded-2xl bg-white border border-light-200 hover:border-accent-blue/30 transition-all duration-300"
+              className="p-6 rounded-2xl bg-white border border-light-200 hover:border-accent-blue/30 transition-all duration-300 flex items-start gap-4"
             >
-              <div className="w-9 h-9 rounded-lg bg-accent-blue/8 flex items-center justify-center mb-3">
-                <item.icon size={16} className="text-accent-blue" />
+              <div className="w-12 h-12 rounded-xl bg-accent-blue/8 flex items-center justify-center flex-shrink-0">
+                <item.icon size={22} className="text-accent-blue" />
               </div>
-              <h4 className="text-xs font-bold text-light-900 mb-1">
-                {item.title}
-              </h4>
-              <p className="text-[11px] text-light-500 leading-relaxed">
-                {item.description}
-              </p>
+              <div>
+                <h4 className="text-base font-bold text-light-900 mb-1">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-light-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
