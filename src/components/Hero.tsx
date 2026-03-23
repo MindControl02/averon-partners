@@ -6,11 +6,18 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-light-50 via-light-100 to-light-50" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80')",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-light-100/95" />
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent-blue/[0.06] blur-[120px]" />
-        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent-cyan/[0.06] blur-[120px]" />
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent-blue/[0.05] blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent-cyan/[0.05] blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,7 +28,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-accent-blue/8 text-accent-blue border border-accent-blue/15">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-accent-blue/8 text-accent-blue border border-accent-blue/15 backdrop-blur-sm">
               B2B Client Acquisition for IT Companies
             </span>
           </motion.div>
@@ -63,7 +70,7 @@ export function Hero() {
             </a>
             <a
               href="#what-we-do"
-              className="px-8 py-4 text-sm font-semibold text-light-700 rounded-xl bg-white border border-light-300 hover:border-accent-blue/30 hover:text-accent-blue transition-all duration-300"
+              className="px-8 py-4 text-sm font-semibold text-light-700 rounded-xl bg-white/80 backdrop-blur-sm border border-light-300 hover:border-accent-blue/30 hover:text-accent-blue transition-all duration-300"
             >
               How It Works
             </a>

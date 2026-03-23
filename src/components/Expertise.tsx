@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Globe, MapPin, Target, Shield, Zap, Server, Code, BarChart3, Monitor, Lock, Wifi, ShoppingCart, Stethoscope, GraduationCap, Building2 } from "lucide-react";
+import { Globe, MapPin, Target, Shield, Zap, Server, Code, BarChart3, Monitor, Lock, Wifi } from "lucide-react";
 
 const reasons = [
   {
@@ -31,11 +31,7 @@ const audiences = [
   { icon: BarChart3, title: "Data & Analytics", description: "Analytics, BI, or data platforms that sell to business decision-makers." },
   { icon: Monitor, title: "DevOps & Infrastructure", description: "Technical products for engineering teams that need help reaching buyers." },
   { icon: Lock, title: "Cybersecurity", description: "Security products targeting CISOs and compliance teams at enterprises." },
-  { icon: Wifi, title: "IoT & Connectivity", description: "IoT platforms and connectivity solutions selling into B2B verticals." },
-  { icon: ShoppingCart, title: "E-commerce Technology", description: "B2B e-commerce tools, payment platforms, and marketplace software." },
-  { icon: Stethoscope, title: "HealthTech & MedTech", description: "Healthcare IT systems, telemedicine platforms, and clinical software." },
-  { icon: GraduationCap, title: "EdTech & LMS", description: "Learning management systems and training platforms for businesses." },
-  { icon: Building2, title: "PropTech & Construction Tech", description: "Real estate technology and construction management software." },
+  { icon: Wifi, title: "AI & Machine Learning", description: "AI tools and ML platforms selling to enterprise and mid-market companies." },
 ];
 
 export function Expertise() {
@@ -160,7 +156,7 @@ export function Expertise() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {audiences.map((item, index) => (
             <motion.div
               key={item.title}

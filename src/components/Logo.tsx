@@ -1,6 +1,6 @@
 "use client";
 
-export function Logo({ size = "default", variant = "auto" }: { size?: "small" | "default" | "large"; variant?: "auto" | "light" | "dark" }) {
+export function Logo({ size = "default" }: { size?: "small" | "default" | "large" }) {
   const sizes = {
     small: { wrap: "h-8", text: "text-sm", sub: "text-[8px]", gap: "gap-[5px]" },
     default: { wrap: "h-10", text: "text-lg", sub: "text-[10px]", gap: "gap-1.5" },
@@ -8,10 +8,6 @@ export function Logo({ size = "default", variant = "auto" }: { size?: "small" | 
   };
 
   const s = sizes[size];
-  const isDark = variant === "dark";
-  const textColor = isDark ? "text-white" : "text-light-900";
-  const subColor = isDark ? "text-white/60" : "text-light-600";
-  const aFill = isDark ? "#ffffff" : "#1a1b2e";
 
   return (
     <div className="flex items-center gap-3">
@@ -23,9 +19,9 @@ export function Logo({ size = "default", variant = "auto" }: { size?: "small" | 
           className="w-full h-full"
         >
           <defs>
-            <linearGradient id="av-v-grad" x1="16" y1="0" x2="54" y2="40">
-              <stop offset="0%" stopColor="#3b6ef5" />
-              <stop offset="100%" stopColor="#38bdf8" />
+            <linearGradient id="av-v-grad" x1="36" y1="0" x2="42" y2="40">
+              <stop offset="0%" stopColor="#c8daf8" />
+              <stop offset="100%" stopColor="#38a3d0" />
             </linearGradient>
           </defs>
           <path
@@ -34,16 +30,16 @@ export function Logo({ size = "default", variant = "auto" }: { size?: "small" | 
           />
           <path
             d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z"
-            fill={aFill}
+            fill="#1a1b2e"
           />
         </svg>
       </div>
 
       <div className={`flex flex-col leading-none ${s.gap}`}>
-        <span className={`${s.text} font-bold tracking-tight ${textColor}`}>
+        <span className={`${s.text} font-bold tracking-tight text-light-900`}>
           AVERON
         </span>
-        <span className={`${s.sub} font-medium tracking-[0.25em] uppercase ${subColor}`}>
+        <span className={`${s.sub} font-medium tracking-[0.25em] uppercase text-light-500`}>
           Partners
         </span>
       </div>
