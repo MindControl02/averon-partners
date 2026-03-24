@@ -8,6 +8,7 @@ export function Logo({ size = "default", scrolled = false }: { size?: "small" | 
   };
 
   const s = sizes[size];
+  const aFill = scrolled ? "#1A1F2B" : "#ffffff";
 
   return (
     <div className="flex items-center gap-3">
@@ -30,9 +31,7 @@ export function Logo({ size = "default", scrolled = false }: { size?: "small" | 
           />
           <path
             d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z"
-            fill="#ffffff"
-            stroke={scrolled ? "#b0b4c0" : "none"}
-            strokeWidth={scrolled ? "0.5" : "0"}
+            fill={aFill}
           />
         </svg>
       </div>
@@ -40,13 +39,13 @@ export function Logo({ size = "default", scrolled = false }: { size?: "small" | 
       <div className={`flex flex-col leading-none ${s.gap}`}>
         <span
           className={`${s.text} font-bold tracking-tight transition-colors duration-400`}
-          style={{ color: scrolled ? "#1a1b2e" : "#ffffff" }}
+          style={{ color: scrolled ? "#1A1F2B" : "#ffffff" }}
         >
           AVERON
         </span>
         <span
           className={`${s.sub} font-medium tracking-[0.25em] uppercase transition-colors duration-400`}
-          style={{ color: scrolled ? "#9ea0b8" : "rgba(255,255,255,0.5)" }}
+          style={{ color: scrolled ? "#6b6d8a" : "rgba(255,255,255,0.5)" }}
         >
           Partners
         </span>
