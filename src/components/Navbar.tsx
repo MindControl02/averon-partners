@@ -28,14 +28,14 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-light-300/50 shadow-sm"
+          ? "bg-white/80 backdrop-blur-xl shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="relative z-10">
-            <Logo />
+            <Logo dark={!scrolled} />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,7 +43,11 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-light-600 hover:text-accent-blue transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  scrolled
+                    ? "text-light-600 hover:text-accent-blue"
+                    : "text-white/75 hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
@@ -61,7 +65,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-lg text-light-700"
+              className={`p-2 rounded-lg ${scrolled ? "text-light-700" : "text-white/80"}`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -76,7 +80,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-light-300/50"
+            className="md:hidden bg-white/95 backdrop-blur-xl"
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
