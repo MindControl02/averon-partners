@@ -26,16 +26,19 @@ export function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-sm"
-          : "bg-[rgba(10,13,22,0.5)] backdrop-blur-md"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: scrolled ? "#EEF1F5" : "rgba(10,13,22,0.5)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        boxShadow: scrolled ? "0 2px 10px rgba(0,0,0,0.05)" : "none",
+        transition: "background 0.4s ease, box-shadow 0.4s ease",
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="relative z-10">
-            <Logo dark={!scrolled} />
+            <Logo />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,11 +46,10 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  scrolled
-                    ? "text-light-600 hover:text-accent-blue"
-                    : "text-white/75 hover:text-white"
-                }`}
+                className="text-sm font-medium transition-colors duration-300"
+                style={{ color: scrolled ? "#4a4c64" : "rgba(255,255,255,0.75)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = scrolled ? "#3b6ef5" : "#ffffff")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = scrolled ? "#4a4c64" : "rgba(255,255,255,0.75)")}
               >
                 {link.label}
               </a>
@@ -65,7 +67,8 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 rounded-lg transition-colors ${scrolled ? "text-light-700" : "text-white/80"}`}
+              className="p-2 rounded-lg transition-colors"
+              style={{ color: scrolled ? "#4a4c64" : "rgba(255,255,255,0.8)" }}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -80,7 +83,10 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden backdrop-blur-xl ${scrolled ? "bg-white/95" : "bg-[rgba(10,13,22,0.85)]"}`}
+            style={{
+              background: scrolled ? "#EEF1F5" : "rgba(10,13,22,0.9)",
+              backdropFilter: "blur(16px)",
+            }}
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -88,9 +94,8 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium transition-colors py-2 ${
-                    scrolled ? "text-light-700 hover:text-accent-blue" : "text-white/80 hover:text-white"
-                  }`}
+                  className="text-sm font-medium py-2"
+                  style={{ color: scrolled ? "#4a4c64" : "rgba(255,255,255,0.8)" }}
                 >
                   {link.label}
                 </a>

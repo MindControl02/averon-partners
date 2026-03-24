@@ -1,6 +1,6 @@
 "use client";
 
-export function Logo({ size = "default", dark = false }: { size?: "small" | "default" | "large"; dark?: boolean }) {
+export function Logo({ size = "default" }: { size?: "small" | "default" | "large" }) {
   const sizes = {
     small: { wrap: "h-8", text: "text-sm", sub: "text-[8px]", gap: "gap-[5px]" },
     default: { wrap: "h-10", text: "text-lg", sub: "text-[10px]", gap: "gap-1.5" },
@@ -8,11 +8,9 @@ export function Logo({ size = "default", dark = false }: { size?: "small" | "def
   };
 
   const s = sizes[size];
-  const textColor = dark ? "text-white" : "text-light-900";
-  const subColor = dark ? "text-white/50" : "text-light-500";
 
   return (
-    <div className="flex items-center gap-3" style={{ filter: "brightness(1.05) contrast(1.05)" }}>
+    <div className="flex items-center gap-3">
       <div className={`${s.wrap} aspect-[54/40] relative flex items-center justify-center`}>
         <svg
           viewBox="0 0 54 40"
@@ -33,17 +31,17 @@ export function Logo({ size = "default", dark = false }: { size?: "small" | "def
           <path
             d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z"
             fill="#ffffff"
-            stroke={dark ? "none" : "#c8cad6"}
-            strokeWidth={dark ? "0" : "0.4"}
+            stroke="#b0b4c0"
+            strokeWidth="0.5"
           />
         </svg>
       </div>
 
       <div className={`flex flex-col leading-none ${s.gap}`}>
-        <span className={`${s.text} font-bold tracking-tight ${textColor}`}>
+        <span className={`${s.text} font-bold tracking-tight text-white`}>
           AVERON
         </span>
-        <span className={`${s.sub} font-medium tracking-[0.25em] uppercase ${subColor}`}>
+        <span className={`${s.sub} font-medium tracking-[0.25em] uppercase text-white/50`}>
           Partners
         </span>
       </div>
