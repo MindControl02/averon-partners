@@ -12,7 +12,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           <div className="md:col-span-2">
-            <Logo />
+            <Logo scrolled />
             <p className="mt-4 text-sm text-light-600 leading-relaxed max-w-md">
               Averon Partners helps IT and technology companies find B2B clients
               through targeted outreach and direct access to decision-makers.
