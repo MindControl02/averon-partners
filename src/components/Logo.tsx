@@ -1,6 +1,6 @@
 "use client";
 
-export function Logo({ size = "default" }: { size?: "small" | "default" | "large" }) {
+export function Logo({ size = "default", scrolled = false }: { size?: "small" | "default" | "large"; scrolled?: boolean }) {
   const sizes = {
     small: { wrap: "h-8", text: "text-sm", sub: "text-[8px]", gap: "gap-[5px]" },
     default: { wrap: "h-10", text: "text-lg", sub: "text-[10px]", gap: "gap-1.5" },
@@ -31,17 +31,23 @@ export function Logo({ size = "default" }: { size?: "small" | "default" | "large
           <path
             d="M0,40 L18,0 L36,40 L28,40 L18,10 L8,40 Z"
             fill="#ffffff"
-            stroke="#b0b4c0"
-            strokeWidth="0.5"
+            stroke={scrolled ? "#b0b4c0" : "none"}
+            strokeWidth={scrolled ? "0.5" : "0"}
           />
         </svg>
       </div>
 
       <div className={`flex flex-col leading-none ${s.gap}`}>
-        <span className={`${s.text} font-bold tracking-tight text-white`}>
+        <span
+          className={`${s.text} font-bold tracking-tight transition-colors duration-400`}
+          style={{ color: scrolled ? "#1a1b2e" : "#ffffff" }}
+        >
           AVERON
         </span>
-        <span className={`${s.sub} font-medium tracking-[0.25em] uppercase text-white/50`}>
+        <span
+          className={`${s.sub} font-medium tracking-[0.25em] uppercase transition-colors duration-400`}
+          style={{ color: scrolled ? "#9ea0b8" : "rgba(255,255,255,0.5)" }}
+        >
           Partners
         </span>
       </div>
