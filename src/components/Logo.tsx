@@ -8,7 +8,7 @@ export function Logo({ size = "default", scrolled = false }: { size?: "small" | 
   };
 
   const s = sizes[size];
-  const aFill = scrolled ? "#1A1F2B" : "#ffffff";
+  const aFill = scrolled ? "#8A90A0" : "#ffffff";
 
   return (
     <div className="flex items-center gap-3">
@@ -39,13 +39,13 @@ export function Logo({ size = "default", scrolled = false }: { size?: "small" | 
       <div className={`flex flex-col leading-none ${s.gap}`}>
         <span
           className={`${s.text} font-bold tracking-tight transition-colors duration-400`}
-          style={{ color: scrolled ? "#1A1F2B" : "#ffffff" }}
+          style={{ color: scrolled ? "#8A90A0" : "#ffffff" }}
         >
           AVERON
         </span>
         <span
           className={`${s.sub} font-medium tracking-[0.25em] uppercase transition-colors duration-400`}
-          style={{ color: scrolled ? "#6b6d8a" : "rgba(255,255,255,0.5)" }}
+          style={{ color: scrolled ? "#A0A6B2" : "rgba(255,255,255,0.5)" }}
         >
           Partners
         </span>
