@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
@@ -12,30 +12,19 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
 
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-sm"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="relative z-10">
-            <Logo dark={!scrolled} />
+            <Logo />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,11 +32,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  scrolled
-                    ? "text-light-600 hover:text-accent-blue"
-                    : "text-white/75 hover:text-white"
-                }`}
+                className="text-sm font-medium text-light-600 hover:text-accent-blue transition-colors"
               >
                 {link.label}
               </a>
@@ -65,7 +50,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 rounded-lg ${scrolled ? "text-light-700" : "text-white/80"}`}
+              className="p-2 rounded-lg text-light-700"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
